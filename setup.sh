@@ -1,10 +1,9 @@
 sudo apt-get update -y
 sudo apt-get install -y docker.io git openvpn iptables-persistent
-[ -d /data/docker ] || sudo mkdir -p /data/docker
 
 
 # Network adapter : eno1
-############# Modify firewall rules
+############# Modify firewall rulese
 # Accept loopback
 sudo iptables -A INPUT -i lo -j ACCEPT
 sudo iptables -A OUTPUT -o lo -j ACCEPT
