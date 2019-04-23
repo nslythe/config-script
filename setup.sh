@@ -23,4 +23,4 @@ sudo iptables -A INPUT -i eno1 -j DROP
 sudo iptables -A OUTPUT -o eno1 -j ACCEPT
 
 ############# Save firewall rules
-sudo netfilter-persistent save
+# sudo netfilter-persistent save
