@@ -1,26 +1,22 @@
-apt-get update -y
-apt-get install -y docker.io git openvpn iptables-persistent
-mkdir -p /data/docker
+sudo apt-get update
 
-# Network adapter : eno1
-############# Modify firewall rulese
-# Accept loopback
-iptables -A INPUT -i lo -j ACCEPT
-iptables -A OUTPUT -o lo -j ACCEPT
+# iptable
+apt-get install -y iptables-persistent
+firewall.sh
 
-# Accept input etablished/related connection
-iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+# docker
+apt-get install -y docker.io
+systemctl start docker
+systemctl enable docker
 
-# Accept output etablished connection
-iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT
+apt-get install -y openvpn
 
-# Allow SSH
-iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
-iptables -A OUTPUT -p tcp --sport 22 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 
-# Drop INPUT / Accept OUTPUT
-iptables -A INPUT -i eno1 -j DROP
-iptables -A OUTPUT -o eno1 -j ACCEPT
+# For speedtest
+apt-get install gnupg1 apt-transport-https dirmngrgit -y
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+export DEB_DISTRO=$(lsb_release -sc)
+echo "deb https://ookla.bintray.com/debian ${DEB_DISTRO} main" | sudo tee  /etc/apt/sources.list.d/speedtest.list
 
-############# Save firewall rules
-netfilter-persistent save
+sudo apt-get update
+apt-get install speedtest
