@@ -11,7 +11,7 @@ apt-get install -y docker.io
 systemctl start docker
 systemctl enable docker
 
-apt-get install -y openvpn
+apt-get install -y openvpn openvpn-systemd-resolved
 
 
 # For speedtest
