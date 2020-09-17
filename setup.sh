@@ -13,7 +13,7 @@ apt-get install -y openvpn
 
 
 # For speedtest
-apt-get install gnupg1 apt-transport-https dirmngrgit -y
+apt-get install gnupg1 apt-transport-https -y
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 export DEB_DISTRO=$(lsb_release -sc)
 echo "deb https://ookla.bintray.com/debian ${DEB_DISTRO} main" | sudo tee  /etc/apt/sources.list.d/speedtest.list
