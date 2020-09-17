@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 apt-get install -y git
 git clone https://github.com/nslythe/config-script.git
 cd config-script
