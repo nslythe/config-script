@@ -12,7 +12,7 @@ systemctl start docker
 systemctl enable docker
 
 apt-get install -y openvpn openvpn-systemd-resolved
-
+ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # For speedtest
 apt-get install gnupg1 apt-transport-https -y
