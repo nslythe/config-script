@@ -1,0 +1,1 @@
+iptables-restore < /etc/network/iptables.rules
