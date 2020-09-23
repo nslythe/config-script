@@ -10,6 +10,11 @@ firewall.sh
 apt-get install -y ruby
 gem install bundler jekyll
 
+# snapd / certbot
+apt-get remove certbot
+apt install -y snapd
+snap install --classic certbot
+
 # docker
 apt-get install -y docker.io
 systemctl start docker
