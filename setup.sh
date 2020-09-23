@@ -17,6 +17,7 @@ snap install --classic certbot
 
 # docker
 apt-get install -y docker.io
+apt-get install -y docker-compose
 systemctl start docker
 systemctl enable docker
 
