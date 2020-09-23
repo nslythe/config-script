@@ -6,7 +6,10 @@ echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-
 apt-get install -y iptables-persistent
 firewall.sh
 
-# install dev
+# build-essential
+apt-get install -y build-essential
+
+# install ruby
 apt-get install -y ruby
 apt-get install -y ruby-dev
 gem install bundler jekyll
