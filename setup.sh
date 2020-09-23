@@ -8,6 +8,7 @@ firewall.sh
 
 # install dev
 apt-get install -y ruby
+apt-get install -y ruby-dev
 gem install bundler jekyll
 
 # snapd / certbot
