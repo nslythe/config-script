@@ -19,6 +19,9 @@ apt-get remove certbot
 apt install -y snapd
 snap install --classic certbot
 
+# samba
+apt-get install -y samba
+
 # docker
 apt-get install -y docker.io
 apt-get install -y docker-compose
