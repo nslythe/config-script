@@ -1,7 +1,6 @@
 # Accept loopback
 iptables -F INPUT
 iptables -F OUTPUT
-iptables -F FORWARD
 
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
@@ -22,10 +21,6 @@ iptables -A INPUT -p tcp --dport 443 -m conntrack --ctstate NEW,ESTABLISHED -j A
 iptables -A OUTPUT -p tcp --sport 443 -m conntrack --ctstate ESTABLISHED -j ACCEPT
 iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 iptables -A OUTPUT -p tcp --sport 80 -m conntrack --ctstate ESTABLISHED -j ACCEPT
-
-#DOCKER-USER  all  --  anywhere             anywhere
-#DOCKER-ISOLATION-STAGE-1  all  --  anywhere             anywhere
-
 
 # Drop INPUT / Accept OUTPUT
 iptables -A INPUT -i eno1 -j DROP
