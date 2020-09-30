@@ -27,7 +27,8 @@ iptables -A INPUT -i eno1 -j DROP
 iptables -A OUTPUT -o eno1 -j ACCEPT
 
 ############# Save firewall rules
-iptables-save > /etc/network/iptables.rules
-cp restore-iptables /etc/network/if-pre-up.d/restore-iptables
+iptables-save > /etc/iptables/rules.v4
+cp iptablesload /etc/network/if-pre-up.d/iptablesload
+chmod +x /etc/network/if-pre-up.d/iptablesload
 
 
